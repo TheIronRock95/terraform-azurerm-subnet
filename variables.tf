@@ -51,11 +51,13 @@ variable "service_delegation_name" {
   description = "The name of service to delegate to."
   type        = string
   sensitive   = false
+  default     = ""
 }
 variable "service_delegation_actions" {
   description = "A list of Actions which should be delegated."
   type        = list(string)
   sensitive   = false
+  default     = []
 }
 
 ##subnet_network_security_group_association
