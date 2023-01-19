@@ -4,53 +4,58 @@ variable "azure_location" {
   sensitive   = false
 }
 variable "name" {
-  description = "The name of the virtual network. Changing this forces a new resource to be created."
+  description = "The name of the subnet. Changing this forces a new resource to be created."
   type        = string
   sensitive   = false
 }
 variable "resource_group_name" {
-  description = "Resource group name"
+  description = "The name of the resource group in which to create the subnet. Changing this forces a new resource to be created."
   type        = string
+  sensitive   = false
 }
 variable "virtual_network_name" {
-  description = "Virtual network name"
+  description = "The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created."
   type        = string
+  sensitive   = false
 }
 variable "address_prefixes" {
-  description = "The address prefix list to use for the subnet."
+  description = "The address prefixes to use for the subnet."
   type        = list(string)
+  sensitive   = false
 }
 variable "service_endpoints" {
   description = "The list of Service endpoints to associate with the subnet."
   type        = list(string)
+  sensitive   = false
   default     = []
 }
 variable "service_endpoint_policy_ids" {
   description = "The list of IDs of Service Endpoint Policies to associate with the subnet."
   type        = list(string)
+  sensitive   = false
   default     = null
 }
 variable "private_endpoint_network_policies_enabled" {
-  description = "Enable or disable network policies for the Private Endpoint on the subnet."
+  description = "Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will Enable the policy and setting this to `false` will Disable the policy. Defaults to `true`."
   type        = bool
-  default     = null
+  sensitive   = false
+  default     = true
 }
 variable "private_link_service_network_policies_enabled" {
-  description = "Enable or disable network policies for the Private Link Service on the subnet."
+  description = "Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will Enable the policy and setting this to `false` will Disable the policy. Defaults to `true`."
   type        = bool
+  sensitive   = false
+  default     = true
+}
+variable "service_delegation_name" {
+  description = "The name of service to delegate to."
+  type        = bool
+  sensitive   = false
   default     = null
 }
-
-variable "delegation" {
-  description = <<EOD
-Configuration delegations on subnet
-object({
-  name = object({
-    name = string,
-    actions = list(string)
-  })
-})
-EOD
-  type        = map(list(any))
-  default     = {}
+variable "service_delegation_actions" {
+  description = "A list of Actions which should be delegated."
+  type        = bool
+  sensitive   = false
+  default     = null
 }

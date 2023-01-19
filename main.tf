@@ -1,24 +1,20 @@
 resource "azurerm_subnet" "this" {
-  name                 = var.name
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = var.virtual_network_name
-  address_prefixes     = var.address_prefixes
+  count = length(var.name)
+
+  name                 = var.name[count.index]
+  resource_group_name  = element(var.resource_group_name[*], count.index)
+  virtual_network_name = element(var.virtual_network_name[*], count.index)
+  address_prefixes     = [element(var.address_prefixes[*], count.index)]
 
   service_endpoints           = var.service_endpoints
   service_endpoint_policy_ids = var.service_endpoint_policy_ids
 
-  dynamic "delegation" {
-    for_each = var.delegation
-    content {
-      name = delegation.key
+  delegation {
+    name = var.service_delegation_name
 
-      dynamic "service_delegation" {
-        for_each = toset(delegation.value)
-        content {
-          name    = service_delegation.value.name
-          actions = service_delegation.value.actions
-        }
-      }
+    service_delegation {
+      name    = var.service_delegation_name
+      actions = var.service_delegation_actions
     }
   }
 
