@@ -28,10 +28,12 @@ module "subnet_network_security_group_association" {
   use_nsg_association       = false
   network_security_group_id = var.network_security_group_id
   subnet_id                 = azurerm_subnet.this.*.id
-
 }
 
-# module "subnet_association" {
-#   source  = "module/terraform-azurerm-subnet_route_table_association"
+module "subnet_association" {
+  source = "./modules/terraform-azurerm-subnet_route_table_association"
 
-# }
+  use_route_association = true
+  subnet_id             = element(var.subnet_id[*], count.index)
+  route_table_id        = element(var.route_table_id[*], count.index)
+}
