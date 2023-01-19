@@ -5,7 +5,7 @@ variable "azure_location" {
 }
 variable "name" {
   description = "The name of the subnet. Changing this forces a new resource to be created."
-  type        = string
+  type        = list(string)
   sensitive   = false
 }
 variable "resource_group_name" {
@@ -49,15 +49,13 @@ variable "private_link_service_network_policies_enabled" {
 }
 variable "service_delegation_name" {
   description = "The name of service to delegate to."
-  type        = bool
+  type        = string
   sensitive   = false
-  default     = null
 }
 variable "service_delegation_actions" {
   description = "A list of Actions which should be delegated."
-  type        = bool
+  type        = list(string)
   sensitive   = false
-  default     = null
 }
 
 ##subnet_network_security_group_association
@@ -65,4 +63,5 @@ variable "network_security_group_id" {
   description = "The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created."
   type        = string
   sensitive   = false
+  default     = ""
 }

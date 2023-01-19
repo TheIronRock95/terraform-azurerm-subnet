@@ -23,11 +23,11 @@ resource "azurerm_subnet" "this" {
 }
 
 module "subnet_network_security_group_association" {
-  source  = "module/terraform-azurerm-subnet_network_security_group_association"
+  source = "./modules/terraform-azurerm-subnet_network_security_group_association"
 
-  use_nsg_association = false
+  use_nsg_association       = false
   network_security_group_id = var.network_security_group_id
-  subnet_id = azurerm_subnet.this.*.id
+  subnet_id                 = azurerm_subnet.this.*.id
 
 }
 
