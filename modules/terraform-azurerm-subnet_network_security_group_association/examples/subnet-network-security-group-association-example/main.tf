@@ -1,4 +1,4 @@
-module "resource_group" {
+module "subnet_network_security_group_association" {
   source  = "TheIronRock95/XXX/XXX/azurerm"
   version = "x.x.x"
 
