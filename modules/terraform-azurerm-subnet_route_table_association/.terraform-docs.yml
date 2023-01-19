@@ -9,7 +9,7 @@ content: |-
   # Usage - Module
 
   ```hcl
-  {{ include "./examples/subnet-example/main.tf" }}
+  {{ include "./examples/subnet-network-route-table-association-example/main.tf" }}
   ```
   {{ .Providers }}
 
