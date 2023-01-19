@@ -6,10 +6,10 @@ footer-from: "docs/footer-doc.tf"
 content: |-
   {{ .Header }}
 
-  # Examples
+  # Usage - Module
 
   ```hcl
-  {{ include "examples/example1/module.tf" }}
+  {{ include "examples/subnet-example/main.tf" }}
   ```
   {{ .Providers }}
 
