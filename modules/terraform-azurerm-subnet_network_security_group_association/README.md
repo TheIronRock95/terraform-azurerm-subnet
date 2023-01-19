@@ -15,7 +15,9 @@ module "resource_group" {
 ```
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| azurerm | n/a |
 
 ## Modules
 
@@ -23,15 +25,23 @@ No modules.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [azurerm_subnet_network_security_group_association.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_network_security_group_association) | resource |
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Required |
+|------|-------------|------|:--------:|
+| network\_security\_group\_id | The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created. | `string` | yes |
+| subnet\_id | The ID of the Subnet. Changing this forces a new resource to be created. | `string` | yes |
+| use\_nsg\_association | Whether to implement Network Security Group Association | `bool` | yes |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| azurerm\_subnet\_network\_security\_group\_association\_id | The ID of the Subnet. |
 
 ## Related documentation
 <!-- END_TF_DOCS -->
