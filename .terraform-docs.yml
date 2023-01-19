@@ -23,6 +23,9 @@ content: |-
 
   {{ .Footer }}
 
+recursive:
+  enabled: true
+
 output:
   file: README.md
   mode: inject
