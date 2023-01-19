@@ -1,17 +1,18 @@
 <!-- BEGIN_TF_DOCS -->
- # Azure subnet
+ # Azure subnet network security group association
 [![Changelog](https://img.shields.io/badge/changelog-release-green.svg)](CHANGELOG.md) [![Notice](https://img.shields.io/badge/notice-copyright-yellow.svg)](NOTICE) [![Apache V2 License](https://img.shields.io/badge/license-Apache%20V2-orange.svg)](LICENSE) [![TF Registry](https://img.shields.io/badge/terraform-registry-blue.svg)](https://registry.terraform.io/modules/TheIronRock95/resourcegroup/azurerm/latest)
 
 # Usage - Module
 
 ```hcl
 module "resource_group" {
-  source  = "TheIronRock95/XXX/azurerm"
+  source  = "TheIronRock95/XXX/XXX/azurerm"
   version = "x.x.x"
 
-
+  use_nsg_association       = true
+  network_security_group_id = var.network_security_group_id
+  subnet_id                 = var.subnet_id
 }
-
 ```
 ## Providers
 
