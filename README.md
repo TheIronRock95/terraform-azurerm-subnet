@@ -23,6 +23,7 @@ module "resource_group" {
 
 | Name | Source | Version |
 |------|--------|---------|
+| subnet\_association | ./modules/terraform-azurerm-subnet_route_table_association | n/a |
 | subnet\_network\_security\_group\_association | ./modules/terraform-azurerm-subnet_network_security_group_association | n/a |
 
 ## Resources
