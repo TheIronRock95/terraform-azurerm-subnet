@@ -14,7 +14,7 @@ Using the modules requires the following pre-requisites:
 ```hcl
 
 module "subnet" {
-  source  = "sironite/subnet/azurerm"
+  source  = "TheIronRock95/subnet/azurerm"
   version = "x.x.x"
 
   subnet_name          = var.value.subnet_name
@@ -27,7 +27,7 @@ module "subnet" {
 
 ## Authors
 
-The module is maintained by [Sironite](https://github.com/sironite)
+The module is maintained by [Wouter Damman](https://github.com/TheIronRock95)
 
 ## Documentation
 
