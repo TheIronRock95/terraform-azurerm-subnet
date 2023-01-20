@@ -7,7 +7,7 @@
 ## one subnet
 ```hcl
 module "subnet" {
-  source  = "TheIronRock95/subnet/azurerm"
+  source  = "sironite/subnet/azurerm"
   version = "x.x.x"
 
   subnet_name          = var.value.subnet_name
@@ -21,7 +21,7 @@ module "subnet" {
 ## multiple subnet
 ```hcl
 module "subnet" {
-  source  = "TheIronRock95/subnet/azurerm"
+  source  = "sironite/subnet/azurerm"
   version = "x.x.x"
 
   for_each = var.subnet_config
