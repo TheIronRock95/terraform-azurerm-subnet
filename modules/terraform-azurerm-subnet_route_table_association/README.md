@@ -36,7 +36,7 @@ No modules.
 
 | Name | Description | Type | Required |
 |------|-------------|------|:--------:|
-| route\_table\_id | The ID of the Route Table which should be associated with the Subnet. | `string` | yes |
+| route\_table\_id | The ID of the Route Table which should be associated with the Subnet | `string` | yes |
 | subnet\_id | The ID of the Subnet. Changing this forces a new resource to be created. | `string` | yes |
 | use\_route\_association | Whether to implement route table association | `bool` | yes |
 
