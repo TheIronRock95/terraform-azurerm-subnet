@@ -1,5 +1,5 @@
 module "subnet" {
-  source  = "TheIronRock95/subnet/azurerm"
+  source  = "sironite/subnet/azurerm"
   version = "x.x.x"
 
   for_each = var.subnet_config
