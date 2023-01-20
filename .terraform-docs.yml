@@ -8,9 +8,16 @@ content: |-
 
   # Usage - Module
 
+  ## one subnet
   ```hcl
-  {{ include "examples/subnet-example/main.tf" }}
+  {{ include "examples/one-subnet-example/main.tf" }}
   ```
+
+  ## multiple subnet
+  ```hcl
+  {{ include "examples/multiple-subnet-example/main.tf" }}
+  ```
+
   {{ .Providers }}
 
   {{ .Modules }}
