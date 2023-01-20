@@ -3,9 +3,9 @@ variable "azure_location" {
   type        = string
   sensitive   = false
 }
-variable "name" {
+variable "subnet_name" {
   description = "The name of the subnet. Changing this forces a new resource to be created."
-  type        = list(string)
+  type        = string
   sensitive   = false
 }
 variable "resource_group_name" {
@@ -47,17 +47,19 @@ variable "private_link_service_network_policies_enabled" {
   sensitive   = false
   default     = true
 }
-variable "service_delegation_name" {
-  description = "The name of service to delegate to."
-  type        = string
-  sensitive   = false
-  default     = ""
-}
-variable "service_delegation_actions" {
-  description = "A list of Actions which should be delegated."
-  type        = list(string)
-  sensitive   = false
-  default     = []
+
+variable "subnet_delegation" {
+  description = <<EOD
+Configuration delegations on subnet
+object({
+  name = object({
+    name = string,
+    actions = list(string)
+  })
+})
+EOD
+  type        = map(list(any))
+  default     = {}
 }
 
 ##subnet_network_security_group_association
@@ -65,5 +67,12 @@ variable "network_security_group_id" {
   description = "The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created."
   type        = string
   sensitive   = false
-  default     = ""
+  default     = null
 }
+
+# #subnet_route_table_association
+# variable "route_table_id" {
+#   description = "The ID of the Route Table which should be associated with the Subnet"
+#   type        = string
+#   sensitive   = false
+# }

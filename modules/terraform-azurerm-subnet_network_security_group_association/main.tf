@@ -1,6 +1,6 @@
 resource "azurerm_subnet_network_security_group_association" "this" {
-  count = var.use_nsg_association == true ? length(var.network_security_group_id) : 0
+  count = var.use_nsg_association == false ? 0 : 1
 
-  subnet_id                 = element(var.subnet_id[*], count.index)
-  network_security_group_id = element(var.network_security_group_id[*], count.index)
+  subnet_id                 = var.subnet_id
+  network_security_group_id = var.network_security_group_id
 }

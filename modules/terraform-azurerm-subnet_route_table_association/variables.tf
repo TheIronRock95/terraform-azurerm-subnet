@@ -9,7 +9,7 @@ variable "subnet_id" {
   sensitive   = false
 }
 variable "route_table_id" {
-  description = "The ID of the Route Table which should be associated with the Subnet."
+  description = "The ID of the Route Table which should be associated with the Subnet"
   type        = string
   sensitive   = false
 }
