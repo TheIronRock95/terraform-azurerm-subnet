@@ -6,11 +6,18 @@ footer-from: "docs/footer-doc.tf"
 content: |-
   {{ .Header }}
 
-  # Examples
+  # Usage - Module
 
+  ## one subnet
   ```hcl
-  {{ include "examples/example1/module.tf" }}
+  {{ include "examples/one-subnet-example/main.tf" }}
   ```
+
+  ## multiple subnet
+  ```hcl
+  {{ include "examples/multiple-subnet-example/main.tf" }}
+  ```
+
   {{ .Providers }}
 
   {{ .Modules }}
@@ -22,6 +29,9 @@ content: |-
   {{ .Outputs }}
 
   {{ .Footer }}
+
+recursive:
+  enabled: true
 
 output:
   file: README.md
