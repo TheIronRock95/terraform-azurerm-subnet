@@ -24,18 +24,3 @@ resource "azurerm_subnet" "this" {
   private_endpoint_network_policies_enabled     = var.private_endpoint_network_policies_enabled
   private_link_service_network_policies_enabled = var.private_link_service_network_policies_enabled
 }
-
-module "subnet_network_security_group_association" {
-  source = "./modules/terraform-azurerm-subnet_network_security_group_association"
-  use_nsg_association = false
-  network_security_group_id = var.network_security_group_id
-  subnet_id                 = azurerm_subnet.this.id
-}
-
-# module "subnet_route_table_association" {
-#   source = "./modules/terraform-azurerm-subnet_route_table_association"
-
-#   use_route_association = true
-#   route_table_id        = var.route_table_id
-#   subnet_id             = azurerm_subnet.this.id
-# }

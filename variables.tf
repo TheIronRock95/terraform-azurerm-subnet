@@ -61,18 +61,3 @@ EOD
   type        = map(list(any))
   default     = {}
 }
-
-##subnet_network_security_group_association
-variable "network_security_group_id" {
-  description = "The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created."
-  type        = string
-  sensitive   = false
-  default     = null
-}
-
-# #subnet_route_table_association
-# variable "route_table_id" {
-#   description = "The ID of the Route Table which should be associated with the Subnet"
-#   type        = string
-#   sensitive   = false
-# }
