@@ -14,7 +14,7 @@ Using the modules requires the following pre-requisites:
 ```hcl
 
 module "subnet" {
-  source  = "sironite/subnet/azurerm"
+  source  = "TheIronRock95/subnet/azurerm"
   version = "x.x.x"
 
   for_each = var.subnet_config
