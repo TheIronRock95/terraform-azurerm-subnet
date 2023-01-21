@@ -5,8 +5,8 @@ module "subnet" {
   for_each = var.subnet_config
 
   azure_location       = var.azure_location
-  resource_group_name  = module.resourcegroup.resource_group_name[4]
-  virtual_network_name = module.virtualnetwork.virtual_network_name
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = var.virtual_network_name
   subnet_name          = each.value.subnet_name
   address_prefixes     = each.value.address_prefixes
 
