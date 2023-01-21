@@ -24,3 +24,20 @@ resource "azurerm_subnet" "this" {
   private_endpoint_network_policies_enabled     = var.private_endpoint_network_policies_enabled
   private_link_service_network_policies_enabled = var.private_link_service_network_policies_enabled
 }
+
+resource "azurerm_subnet_network_security_group_association" "this" {
+  count = var.network_security_group_name == null ? 0 : 1
+
+  subnet_id                 = local.subnet_id
+  network_security_group_id = local.network_security_group_id
+
+  depends_on = [
+    azurerm_subnet.this
+  ]
+
+}
+
+data "azurerm_subscription" "current" {
+}
+
+
