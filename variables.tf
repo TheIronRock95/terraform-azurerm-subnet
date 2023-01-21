@@ -61,3 +61,16 @@ EOD
   type        = map(list(any))
   default     = {}
 }
+
+variable "nsg_resource_group_name" {
+  description = "The name of the resource group in which the network security group is deployed."
+  type        = string
+  sensitive   = false
+}
+  
+variable "network_security_group_name" {
+  description = "The name of the network security group "
+  type        = string
+  sensitive   = false
+  
+}
