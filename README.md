@@ -10,11 +10,14 @@ module "subnet" {
   source  = "sironite/subnet/azurerm"
   version = "x.x.x"
 
-  subnet_name          = var.value.subnet_name
   azure_location       = var.azure_location
-  resource_group_name  = module.resourcegroup.resource_group_name[4]
-  virtual_network_name = module.virtualnetwork.virtual_network_name
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = var.virtual_network_name
+  subnet_name          = var.subnet_name
   address_prefixes     = var.address_prefixes
+
+  nsg_resource_group_name = var.nsg_resource_group_name
+  network_security_group_name = var.network_security_group_name
 }
 ```
 
@@ -26,11 +29,14 @@ module "subnet" {
 
   for_each = var.subnet_config
 
-  subnet_name          = each.value.subnet_name
   azure_location       = var.azure_location
-  resource_group_name  = module.resourcegroup.resource_group_name[4]
-  virtual_network_name = module.virtualnetwork.virtual_network_name
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = var.virtual_network_name
+  subnet_name          = each.value.subnet_name
   address_prefixes     = each.value.address_prefixes
+
+  nsg_resource_group_name = each.value.nsg_resource_group_name
+  network_security_group_name = each.value.network_security_group_name
 }
 ```
 
@@ -49,6 +55,8 @@ No modules.
 | Name | Type |
 |------|------|
 | [azurerm_subnet.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
+| [azurerm_subnet_network_security_group_association.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_network_security_group_association) | resource |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
 
@@ -59,6 +67,8 @@ No modules.
 | resource\_group\_name | The name of the resource group in which to create the subnet. Changing this forces a new resource to be created. | `string` | yes |
 | subnet\_name | The name of the subnet. Changing this forces a new resource to be created. | `string` | yes |
 | virtual\_network\_name | The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created. | `string` | yes |
+| network\_security\_group\_name | The name of the network security group | `string` | no |
+| nsg\_resource\_group\_name | The name of the resource group in which the network security group is deployed. | `string` | no |
 | private\_endpoint\_network\_policies\_enabled | Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will Enable the policy and setting this to `false` will Disable the policy. Defaults to `true`. | `bool` | no |
 | private\_link\_service\_network\_policies\_enabled | Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will Enable the policy and setting this to `false` will Disable the policy. Defaults to `true`. | `bool` | no |
 | service\_endpoint\_policy\_ids | The list of IDs of Service Endpoint Policies to associate with the subnet. | `list(string)` | no |
