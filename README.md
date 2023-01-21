@@ -49,6 +49,8 @@ No modules.
 | Name | Type |
 |------|------|
 | [azurerm_subnet.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
+| [azurerm_subnet_network_security_group_association.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_network_security_group_association) | resource |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
 
@@ -56,6 +58,8 @@ No modules.
 |------|-------------|------|:--------:|
 | address\_prefixes | The address prefixes to use for the subnet. | `list(string)` | yes |
 | azure\_location | The location/region where the virtual network is created. Changing this forces a new resource to be created. | `string` | yes |
+| network\_security\_group\_name | The name of the network security group | `string` | yes |
+| nsg\_resource\_group\_name | The name of the resource group in which the network security group is deployed. | `string` | yes |
 | resource\_group\_name | The name of the resource group in which to create the subnet. Changing this forces a new resource to be created. | `string` | yes |
 | subnet\_name | The name of the subnet. Changing this forces a new resource to be created. | `string` | yes |
 | virtual\_network\_name | The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created. | `string` | yes |
