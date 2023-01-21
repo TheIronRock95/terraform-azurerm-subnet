@@ -64,11 +64,11 @@ No modules.
 |------|-------------|------|:--------:|
 | address\_prefixes | The address prefixes to use for the subnet. | `list(string)` | yes |
 | azure\_location | The location/region where the virtual network is created. Changing this forces a new resource to be created. | `string` | yes |
-| network\_security\_group\_name | The name of the network security group | `string` | yes |
-| nsg\_resource\_group\_name | The name of the resource group in which the network security group is deployed. | `string` | yes |
 | resource\_group\_name | The name of the resource group in which to create the subnet. Changing this forces a new resource to be created. | `string` | yes |
 | subnet\_name | The name of the subnet. Changing this forces a new resource to be created. | `string` | yes |
 | virtual\_network\_name | The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created. | `string` | yes |
+| network\_security\_group\_name | The name of the network security group | `string` | no |
+| nsg\_resource\_group\_name | The name of the resource group in which the network security group is deployed. | `string` | no |
 | private\_endpoint\_network\_policies\_enabled | Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will Enable the policy and setting this to `false` will Disable the policy. Defaults to `true`. | `bool` | no |
 | private\_link\_service\_network\_policies\_enabled | Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will Enable the policy and setting this to `false` will Disable the policy. Defaults to `true`. | `bool` | no |
 | service\_endpoint\_policy\_ids | The list of IDs of Service Endpoint Policies to associate with the subnet. | `list(string)` | no |
