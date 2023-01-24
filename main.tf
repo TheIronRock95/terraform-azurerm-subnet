@@ -25,8 +25,9 @@ resource "azurerm_subnet" "this" {
   private_link_service_network_policies_enabled = var.private_link_service_network_policies_enabled
 }
 
-resource "azurerm_subnet_network_security_group_association" "this" {
-  count = var.network_security_group_name == null ? 0 : 1
+module "azurerm_subnet_network_security_group_association" {
+  source                      = "./modules/terraform-azurerm-subnet_network_security_group_association"
+  network_security_group_name = var.network_security_group_name
 
   subnet_id                 = local.subnet_id
   network_security_group_id = local.network_security_group_id
@@ -34,10 +35,7 @@ resource "azurerm_subnet_network_security_group_association" "this" {
   depends_on = [
     azurerm_subnet.this
   ]
-
 }
 
 data "azurerm_subscription" "current" {
 }
-
-
