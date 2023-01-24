@@ -12,7 +12,6 @@ Using the modules requires the following pre-requisites:
 `subnet`
 
 ```hcl
-
 module "subnet" {
   source  = "sironite/subnet/azurerm"
   version = "x.x.x"
