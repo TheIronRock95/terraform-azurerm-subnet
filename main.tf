@@ -26,7 +26,7 @@ resource "azurerm_subnet" "this" {
 }
 
 module "azurerm_subnet_network_security_group_association" {
-  source = "./modules/terraform-azurerm-subnet_network_security_group_association"
+  source                      = "./modules/terraform-azurerm-subnet_network_security_group_association"
   network_security_group_name = var.network_security_group_name
 
   subnet_id                 = local.subnet_id
@@ -34,13 +34,8 @@ module "azurerm_subnet_network_security_group_association" {
 
   depends_on = [
     azurerm_subnet.this
-  ] 
+  ]
 }
 
 data "azurerm_subscription" "current" {
 }
-
-
-
-
-
