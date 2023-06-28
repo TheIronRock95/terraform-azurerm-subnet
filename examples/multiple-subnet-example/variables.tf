@@ -19,14 +19,10 @@ variable "subnet_config" {
     "multiple-subnet-example" = {
         subnet_name = "myfirstsubnet"
         address_prefixes = ["10.1.0.0/27"]
-        network_security_group_name = "myfirstnsg"
-        nsg_resource_group_name = "myfirstrg"
     },
     "multiple-subnet-example2" = {
         subnet_name = "mysecondsubnet"
         address_prefixes = ["10.1.0.32/27"]
-        network_security_group_name = "mysecondnsg"
-        nsg_resource_group_name = "mysecondrg"
     },
   }
 }

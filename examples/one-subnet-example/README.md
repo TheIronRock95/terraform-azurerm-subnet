@@ -23,14 +23,12 @@ module "subnet" {
   subnet_name          = var.subnet_name
   address_prefixes     = var.address_prefixes
 
-  nsg_resource_group_name = var.nsg_resource_group_name
-  network_security_group_name = var.network_security_group_name
 }
 ```
 
 ## Authors
 
-The module is maintained by [Wouter Damman](https://github.com/TheIronRock95)
+The module is maintained by [Sironite](https://github.com/sironite)
 
 ## Documentation
 

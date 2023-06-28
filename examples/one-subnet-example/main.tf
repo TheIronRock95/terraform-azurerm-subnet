@@ -8,6 +8,4 @@ module "subnet" {
   subnet_name          = var.subnet_name
   address_prefixes     = var.address_prefixes
 
-  nsg_resource_group_name = var.nsg_resource_group_name
-  network_security_group_name = var.network_security_group_name
 }
