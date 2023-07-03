@@ -49,17 +49,9 @@ variable "private_link_service_network_policies_enabled" {
 }
 
 variable "subnet_delegation" {
-  description = <<EOD
-```
-Configuration delegations on subnet
-object({
-  name = object({
-    name = string,
-    actions = list(string)
-  })
-})
-```
-EOD
-  type        = map(list(any))
-  default     = {}
+  type        = map(set(object({
+    name    = string
+    actions = set(string)
+  })))
+  description = "The delegation configuration for the subnet."
 }
